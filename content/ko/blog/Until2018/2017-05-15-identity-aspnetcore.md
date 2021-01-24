@@ -17,7 +17,7 @@ aspnet core application에
 *IdentityUser에서 Id , UserName, Email등 필수 field들이 이미 선언되어있기 때문에 따로 Account에서 선언해줄 필요는 없다.*
 
 3. startup.cs에 위와 같이 등록해준다.
-{% highlight csharp %}
+```c#
 //add identity module
 services.AddIdentity<Account, IdentityRole>()
     .AddEntityFrameworkStores<DatabaseContext>()
@@ -34,26 +34,26 @@ services.Configure<IdentityOptions>(options =>
 물론 아래 configure는 option이기 때문에 원하는 대로 지정할 수 있다. 그리고 Account같은 경우에는 회원관리 모델을 의미하므로 적절히 사용하도록 하자.
 
 마지막으로 configure 함수에
-{% highlight csharp %}
+```c#
 app.UseIdentity();
 ```
 를 추가해준다.
 4. DatabaseContext도 dbcontext를 상속하는 것이 아닌,     
 
-{% highlight csharp %}
+```c#
 public class DatabaseContext : IdentityDbContext<Account>
 ```
 위와 같이 IdentityDbContext<Account>를 상속해주도록 하자.
 
 위와 같이 되면 일단
-{% highlight csharp %}
+```c#
 public DbSet<Account> Accounts { get; set; }
 ```
 와 같은 건 필요없다. 해당 IdentityDbContext에서 *Users<Account> AspNetUsers 라고 따로 테이블이 형성되기 때문.*
 
 이제 설정은 끝났고, Identity Module의 기능을 이용하기만 하면 된다.
 
-{% highlight csharp %}
+```c#
 private readonly UserManager<Account> _userManager;
 
 private readonly SignInManager<Account> _signInManager;

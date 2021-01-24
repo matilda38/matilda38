@@ -69,7 +69,7 @@ Create Action같은 경우에는 post로 지정해주면 자동으로 <input> ta
 
 {% endhighlight%}
 
-{% highlight csharp %}
+```c#
 
     public IActionResult Create()
     {
@@ -111,7 +111,7 @@ Create Action으로 Post 객체를 생성했으니, Detail로 이동할 차례,
 
 이렇게 보내진 id는
 
-{% highlight csharp %}
+```c#
 
 public IActionResult Detail(int id)
 {
@@ -125,7 +125,7 @@ public IActionResult Detail(int id)
 
 기본적으로 controller / action / id로 routing 이 진행된다.
 
-{% highlight csharp %}
+```c#
     app.UseMvc(routes =>
         {
             routes.MapRoute(
@@ -166,23 +166,23 @@ Login, Join 문제를 위해!
 using Microsoft.AspNetCore.Http; 일단 이거 import 해주고,
 
 
-{% highlight csharp %}
+```c#
 {%endhighlight%}
 
-{% highlight csharp %}
+```c#
 {%endhighlight%}
 
-{% highlight csharp %}
+```c#
 {%endhighlight%}
 
-{% highlight csharp %}
+```c#
 {%endhighlight%}
 
 nullable에 대하여 => model 간 관계가 optional일때는 nullable 객체가 필요하다.
 
 즉,
 
-{% highlight csharp %}
+```c#
 
   //related exhibition OPTIONAL
   public long? ExhibitionId { get; set; }

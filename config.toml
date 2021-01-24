@@ -53,7 +53,7 @@ id = "UA-00000000-0"
 
 [languages]
 [languages.en]
-title = "Goldydocs"
+title = "Blog"
 description = "A Docsy example site"
 languageName ="English"
 contentDir = "content/en"
@@ -63,7 +63,7 @@ time_format_default = "02.01.2006"
 time_format_blog = "02.01.2006"
 
 [languages.ko]
-title = "한국어 버전 타이틀"
+title = "log.info"
 languageName ="Korean"
 contentDir = "content/ko"
 time_format_default = "2006.01.02"
@@ -86,7 +86,7 @@ time_format_blog = "2006.01.02"
 section = ["HTML", "print"]
 
 [params]
-copyright = "The Docsy Authors"
+copyright = "nayoon"
 privacy_policy = "https://policies.google.com/privacy"
 
 # First one is picked as the Twitter card image if not set on page.

@@ -17,7 +17,7 @@ date: 2017-08-13
 
 각 html이나 markdown파일마다 layout을 정의하는게 규칙인데, 일반적인 글을 올릴때는 post로 지정해둔다. layout 폴더로 들어가보면, post, default, page, category_index가 있는데, 이것들이 site.pages, site.posts들을 의미하는 거였다. site는 이 블로그 자체를 의미하고 layout이 page냐 post냐 에 따라 각각 site.pages site.posts들에 저장되고 있었다(Jekyll 엔진 자체적으로 처리). 내가 원했던 건 메뉴에 search를 추가하는 것이었다.
 
-{% highlight ruby%}
+```ruby
  assign pages_list = site.pages | sort:"url"
  for node in pages_list
      if node.title != null
@@ -28,17 +28,17 @@ date: 2017-08-13
          endif
      endif
  endfor
-{% endhighlight%}
+```
 
 메뉴가 있는 includes/sidebar.html에는 이런식으로 코드가 작성되어있었기 때문에, pages_list = site.pages는 layout이 page인 파일들을 의미하는 것이었다. 따라서 page_list에 search를 추가하여 메뉴를 추가해야했다. 이는 search.html에
 
-{% highlight ruby%}
+```
 ---
 layout: page
 title: Search
 permalink: /search/
 ---
-{% endhighlight%}
+```
 
 이런식으로 추가해주면 jekyll에 의해 자동으로 search가 page로 인식되고 pages_list에 search도 들어간다.
 

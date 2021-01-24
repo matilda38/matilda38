@@ -13,7 +13,7 @@ public 으로 변수를 선언해버리면 외부에서 마음대로 값을 설�
 
 
 = Getter setter
-{% highlight csharp %}
+```c#
 private int width;
 public int Width
 {
@@ -28,7 +28,7 @@ public int Width
 
 보통 일반적인 프레임워크에서 사용할 때는 이렇게 쓴다.
 
-{% highlight csharp %}
+```c#
 public int Width { get; set; }
 public int Height { get; set; }
 ```

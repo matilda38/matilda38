@@ -101,7 +101,7 @@ Now after working with the subbranch_of_b1 you can commit and push or merge it l
 ## Git Ignore 파일 추가하기
 .gitignore파일로 git 저장소에 올리고 싶지 않은 파일들을 제외시킬 수 있다. 나의 경우엔
 
-```
+```bash
 .idea/
 *.o
 bundle/
@@ -111,7 +111,7 @@ secret/
 ```
 이런식으로 지정해줬는데 IDE 사용시 자동으로 추가되는 파일이나, 루비 젬파일들은 굳이 깃헙에 올려놓을 필요가 없으므로 제외시켰고, o같은 확장자를 가진 파일들은 대개 컴파일 과정에서 생기는 불필요한 파일이므로 제외시켜주었다. secret폴더에는 밖에 보이는 글말고 혼자 보고 싶은 글을 마크다운으로 작성해서 저장해놓기 위해 gitignore에 추가해주었다.
 
-{% highlight bash%}
+```bash
 git rm -r –cached .
 git add .
 git commit -m “Updated .gitignore”

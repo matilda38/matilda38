@@ -2,3 +2,7 @@
 [submodule "themes/docsy"]
 	path = themes/docsy
 	url = https://github.com/google/docsy
+[submodule "public"]
+	path = public
+	url = git@personal:matilda38/matilda38.github.io.git
+	branch = master

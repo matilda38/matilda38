@@ -10,7 +10,7 @@ date: 2017-05-21
 서버오류인 500 error, 즉 API 호출은 정상적으로 이루어졌다는 뜻이다.
 여러가지로 찾아보다가, 디버깅 결과 어이없게도
 
-{% highlight csharp %}
+```csharp
 if (payment == null || checkout == null)
 {
   throw new Exception("Invalid Operation. Null Parameters");
@@ -30,13 +30,12 @@ js로 location.href를 통해 /checkout/ShowResult/{merchant_uid_value}를 날�
 디버깅 결과. Controller 상에서 merchant_uid를 받지 못하고 null로 표시되는 것을 확인할 수 있었다.
 이를 해결하기 위해 *[Route("Checkout/ShowResult/{merchant_uid}")]* 를 추가해주었더니 파라미터로 잘 들어간다.
 
-{% highlight csharp %}
+```csharp
 [HttpGet]
 [Route("Checkout/ShowResult/{merchant_uid}")]
 public async Task<IActionResult> ShowResult(string merchant_uid){
     return View(await *_checkoutservice.ShowResultAsync(merchant_uid)*);
 }
-
 ```
 
 3. highlight 태그가 자꾸 안닫혔다고 하는 지킬 블로그.

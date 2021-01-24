@@ -18,7 +18,7 @@ virtualenvwrapper를 쓸수 없는 문제가 있었다.
 
 virtualenvwrapper를 사용하기 위해, pip(package 설치 관리자)를 이용하여
 
-{% highlight csharp %}
+```c#
 $ pip install virtualenv
 $ pip install virtualenvwrapper
 ```

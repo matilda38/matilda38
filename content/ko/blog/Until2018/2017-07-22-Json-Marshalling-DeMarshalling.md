@@ -6,7 +6,7 @@ date: 2017-07-22
 
 Go 함수들에서 interface{}를 parameter로 받는 일은 꽤 흔한 일이다. 가장 대표적인 예가
 
->func Println(a ...interface{}) (n int, err error)
+> func Println(a ...interface{}) (n int, err error)
 
 이는 interface 여러개를 input으로 받고, 해당 interface의 타입에 맞게 출력을 해준다.
 ```go
@@ -15,7 +15,7 @@ var c = 5
 
 fmt.Println(a)//string 타입 a
 fmt.Println(c)//int 타입인 c
-{% endhighlight%}
+```
 
 >$go run practice.go
 hello
@@ -34,12 +34,11 @@ type MyError struct {
 	When time.Time
 	What string
 }
-```
+
 func (e *MyError) Error() string {
 	return fmt.Sprintf("at %v, %s",
 		e.When, e.What)
 }
-```
 func run() error {
 	return &MyError{
 		time.Now(),
@@ -52,18 +51,21 @@ func main() {
 		fmt.Println(err)
 	}
 }
-{% endhighlight%}
+```
+
 위 예제는 error에 관한 건데, 일반적으로 go programming에서는 error를 리턴하는 경우가 흔하다.
 fmt 패키지가 Println을 통해 err 객체를 출력할때, Error 인터페이스를 구현하고 있는 지 찾는다고 한다.
-
-> type error interface {
+```go
+type error interface {
     Error() string
 }
+```
 
 여기서도 마찬가지로 err 객체가 Error 인터페이스를 구현하고 있는지, Error 메소드를 가지는 지 찾아보면,
-```
+```go
 func (e *MyError) Error() string {}
 ```
+
 MyError 구조체는 이 메소드를 가진다.(composition) 따라서, 위 메소드가 호출된다.
 ```go
 package main
@@ -88,7 +90,8 @@ func main() {
 	fmt.Println(Sqrt(2))
 	fmt.Println(Sqrt(-2))
 }
-{% endhighlight%}
+```
+
 Exercise 예제를 하나 더 보면, ErrNegativeSqrt 라는 이름의 타입을 하나 정의한다. 그럼, sqrt(-2)를 호출했을때, if문에 의해 ErrNegativeSqrt 타입의 객체를 반환하게 된다. fmt가 Println을 수행할 때, 위 객체의 Error 인터페이스를 찾고, Error 메소드를 구현하고 있으므로, 해당 메소드를 출력해주면 된다.
 
 ## Json Marshall and UnMarshall
@@ -107,7 +110,7 @@ var dat map[string]interface{}
         panic(err)
     }
     fmt.Println(dat)
-{% endhighlight%}
+```
 
 참고 예제에 나와있듯, decode된 객체의 값들을 사용하기 위해서 적합한 값으로 cast해줘야한다. (interface{}로 value를 받았으므로)     
 ```go
@@ -115,14 +118,14 @@ num, ok := dat["num"].(float64)
 if ok{
     fmt.Println(num)
 }
-{% endhighlight%}
+```
 nested data 구조에 접근하기 위해서는 연속적인 cast를 필요로 할 수 있다.
 
 ```go
-  strs := dat["strs"].([]interface{})
-  str1 := strs[0].(string)
-  fmt.Println(str1)
-{% endhighlight%}
+strs := dat["strs"].([]interface{})
+str1 := strs[0].(string)
+fmt.Println(str1)
+```
 예상되는 타입으로 cast하고 해당값을 자유롭게 go 에서 사용할 수 있다.
 
 참고) go tour

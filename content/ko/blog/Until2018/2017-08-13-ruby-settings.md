@@ -10,14 +10,14 @@ ruby 자체를 Programming에 쓸 일은 별로 없지만, (요즘엔 Rails도 �
 
 Environment Manager for Ruby로 RVM과 rbenv 두 개가 있는데, 예전에 Rails를 2015년 하반기 처음 입문했을 때만해도 rvm을 많이 썼었다. 그때는 그냥 rbenv가 이름이 더 이뻐서 그걸 썼는데, 지금 다시 관련내용을 찾아보니, 거의 rbenv로 대세가 넘어왔다. 많은 게시물들이 rbenv를 다루고 있었다.
 
-{% highlight bash%}
+```bash
 brew update
 brew install ruby
 ```
 Homebrew를 이용해서 Ruby를 설치하는것이 훨씬 편하다. 공식 페이지에서도 권장하고 있다. Homebrew가 없다면 밑에 링크에서 다운받도록 한다. Homebrew를 설치하는 데 필요한 루비는 맥 기본 루비이기때문에 루비를 따로 설치하지 않아도 그냥 Homebrew부터 깔면된다. Node, MySql등 여러 툴들을 사용할 때도 굉장히 유용하게 쓸 수 있기 때문에 맥 사용자라면, 깔아두는 것을 추천한다.
 [Homebrew 설치하기](https://brew.sh/index_ko.html)
 
-{% highlight bash%}
+```bash
 # If you use bash
 echo 'export PATH=/usr/local/Cellar/ruby/2.4.1_1/bin:$PATH' >> ~/.bash_profile
 # If you use ZSH:
@@ -25,7 +25,7 @@ echo 'export PATH=/usr/local/Cellar/ruby/2.4.1_1/bin:$PATH' >> ~/.zprofile
 ```
 나는 Oh-my-zsh라는 zsh 쉘을 쓰고 있기 때문에 아랫줄을 실행해주었다. 쉘에 PATH를 설정해주는 작업이다. 2.4.1_1 이는 버전명으로 설치한 버전명을 넣도록 한다.
 
-{% highlight bash%}
+```bash
 brew install rbenv ruby-build
 # zsh
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zprofile

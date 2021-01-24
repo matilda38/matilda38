@@ -10,7 +10,7 @@ c# 책으로 공부하다가, 피보나치 짜는 문제가 있어서 얼마 전
 
 아무튼, c#은 FiboNacci 클래스를 만들고 정적 변수와 메소드를 만들어서 Program 클래스의 Main 함수에서 부르는 방식으로 처리할 수 있었다. Memo를 위해 Dictionary 자료형을 이용하면 된다.
 
-{% highlight csharp %}
+```csharp
 //Rextester.Program.Main is the entry point for your code. Don't change it.
 //Compiler version 4.0.30319.17929 for Microsoft (R) .NET Framework 4.5
 using System;
@@ -47,7 +47,7 @@ namespace Rextester
 ```
 
 c#의 Dictionary 자료형이 어떤 자료형에 대응되는가 (c++에서) 를 찾아보다 보니 map 자료형을 찾을 수 있었다. 헤더에 추가해주고,
-{% highlight cplusplus %}
+```c++
 #include<iostream>
 #include<cstdlib>
 #include<map>
@@ -88,7 +88,6 @@ int main()
 
     return 0;
 }
-
 ```
 
 혹시 차이점이 눈에 확들어오지 않는다면, class 부분이 짧아진걸 일단 볼 수 있다. 기본 로직은 정확히 동일하지만, c++의 경우 클래스에서 정적 멤버(변수/메소드)를 선언해주고, **클래스 외부에서 정적 멤버를 정의해주어야한다.**

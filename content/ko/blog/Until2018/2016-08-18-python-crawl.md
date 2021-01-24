@@ -11,7 +11,7 @@ python은 여러모로 충격적인 언어이다.
 일단 x라는 문자를 입력받았을때 **int(x)하면 걍 정수가 나온다**. (atoi(const char*), Int32.parseInt(char*)이런거 필요없음)
 
 DashInsert문제를 풀때 Python으로 풀면,
-{% highlight python %}
+```python
 def even(x,y):
   if int(x)%2 == 0 and int(y)%2==0:
     return True
@@ -61,7 +61,7 @@ lambda를 이용한 파이썬 응용은, map, reduce, filter가 있는데,
 10//0에다 1더하고, 그 결과인 1에다 2더하고, 그 결과인 3에다 3을, 그 결과인 6에다 4를 더해 10을 결과로 반환.
 
 암튼 충격적인건 이문제를 reduce로 풀 수있다는 것이다.
-{% highlight python %}
+```python
 from functools import reduce
 def DashInsert(s): return reduce(lambda x, y: x + ['\*','','\-'][int(x[-1])%2 + int(y) % 2] + y, s)
 ```

@@ -4,7 +4,8 @@ date: 2019-09-19
 
 ---
 
-# golang zero value
+## golang zero value
+
 초기화값이 없는 상태로 선언된 변수들은 각 타입의 zero value값으로 초기화된다.
 
 | **타입** | **값** |
@@ -22,14 +23,15 @@ date: 2019-09-19
 import "fmt"
 
 type hello struct {
-	s string
-	i []int
-	p *hello
+ s string
+ i []int
+ p *hello
 }
 func main() {
-	var h hello
-	fmt.Print(h)
+ var h hello
+ fmt.Print(h)
 }
 // { [] <nil>}
 ```
+
 hello라는 구조체를 정의했을때, 특정값 없이 선언하면, 위와 같이 zero 값이 들어가는걸 알 수 있다.

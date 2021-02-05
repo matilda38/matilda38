@@ -3,8 +3,10 @@ title:  "mac local kubernetes setup"
 date:   2019-09-19 16:00:22 +0900
 ---
 
-# Docker for Mac
+## Docker for Mac
+
 Kubernetes를 이용해서 배포해야할때, 
+
 항상 Cloud위에서 수행하는 것보다는 로컬에 테스트 환경을 구축하고 테스트해보는 것이 생산성에 도움이 될 때가 많다. 그리고 그렇게 어렵지 않다.
 
 ![docker desktop](http://collabnix.com/wp-content/uploads/2019/05/Screen-Shot-2019-05-11-at-6.17.51-PM.png)
@@ -17,28 +19,30 @@ kubectl get nodes
 # NAME             STATUS   ROLES    AGE    VERSION
 # docker-desktop   Ready    master   114m   v1.14.6
 ```
+
 잘 출력된다.
 
-# 간단한 서버로 k8s test해보기
+## 간단한 서버로 k8s test해보기
 
 ```go
 package main
 
 import (
-	"net/http"
+  "net/http"
 )
 
 func main() {
-	http.HandleFunc("/hello", func(w http.ResponseWriter, req *http.Request) {
-		w.Write([]byte("Hello World"))
-	})
+ http.HandleFunc("/hello", func(w http.ResponseWriter, req *http.Request) {
+  w.Write([]byte("Hello World"))
+ })
 
-	http.ListenAndServe(":5000", nil)
+ http.ListenAndServe(":5000", nil)
 }
 ```
 
 hello 엔드포인트로 get 을 날리면 response로 Hello World를 출력하는 간단한 서버이다.
 이 서버를 컨테이너화 시켜 배포하기 위해 dockerfile을 간단히 작성해본다.
+
 ```bash
 FROM golang:latest
 
@@ -130,4 +134,5 @@ exercise라는 이름의 deployment의 5000번 포트를 포워딩 해주는 커
 curl localhost:5000/hello
 # Hello World
 ```
+
 컴퓨터에서 돌고있는 쿠버네티스 pod이 정상 동작임을 확인했다. 이제 다른 여러가지 테스트를 수행해볼수 있다~!
